@@ -12,6 +12,8 @@ namespace Heizung.Model
 		[OmitDb]
 		public Raum Raum { get; set; }
 
+		public int RaumID { get; set; }
+
 		[DbField("Bez")]
 		[String(300)]
 		public string Bezeichnung { get; set; }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.DBAccess", "Heizung
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.Model", "Heizung.Model\Heizung.Model.csproj", "{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testingapps", "Testingapps", "{D2BA6F76-2F1E-430D-8629-1440F92976FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

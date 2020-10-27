@@ -1556,6 +1556,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "Heizung.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.0",
+        "compile": {
+          "bin/placeholder/Heizung.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Heizung.Model.dll": {}
+        }
       }
     }
   },
@@ -5531,10 +5541,16 @@
         "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "Heizung.Model/1.0.0": {
+      "type": "project",
+      "path": "../Heizung.Model/Heizung.Model.csproj",
+      "msbuildProject": "../Heizung.Model/Heizung.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
+      "Heizung.Model >= 1.0.0",
       "MySql.Data >= 8.0.22"
     ]
   },
@@ -5567,7 +5583,11 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "X:\\gitRepositories.Common\\Heizung\\Heizung.Model\\Heizung.Model.csproj": {
+              "projectPath": "X:\\gitRepositories.Common\\Heizung\\Heizung.Model\\Heizung.Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

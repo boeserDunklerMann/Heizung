@@ -11,6 +11,8 @@ namespace Heizung.Model
 
 		[OmitDb]
 		public Messpunkt Messpunkt { get; set; }
+		
+		public int MesspunktID { get; set; }
 
 		public DateTime Stamp { get; set; }
 

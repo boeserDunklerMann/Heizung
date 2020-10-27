@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.Model", "Heizung.Mo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testingapps", "Testingapps", "{D2BA6F76-2F1E-430D-8629-1440F92976FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.Test.Cons", "Heizung.Test.Cons\Heizung.Test.Cons.csproj", "{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,9 +25,16 @@ Global
 		{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA} = {D2BA6F76-2F1E-430D-8629-1440F92976FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9D1FEEC-22EB-48A7-8A7A-D135FCD67132}

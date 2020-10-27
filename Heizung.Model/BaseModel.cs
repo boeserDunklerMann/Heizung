@@ -10,6 +10,7 @@ namespace Heizung.Model
 	/// </summary>
 	public abstract class BaseModel
 	{
+		[OmitDb]	// ID-Feld heißt in jeder Tabelle anders, welches in den abgeleiteten Klassen definiert wird.
 		public int ID { get; set; } = 0;
 
 		/// <summary>

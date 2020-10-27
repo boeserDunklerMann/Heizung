@@ -9,6 +9,7 @@ namespace Heizung.DBAccess
 	{
 		private readonly MySqlConnection connection;
 		private static Lazy<MySql> lazy = new Lazy<MySql>(() => new MySql());
+		public static MySql Instance => lazy.Value;
 
 		#region Initialisierung
 		private MySql()
@@ -36,6 +37,24 @@ namespace Heizung.DBAccess
 		#endregion
 
 		#region Lade Tabellen
+		public List<Wohnung> LoadAll()
+		{
+			List<Wohnung> wohnungen = LoadWohnungen();
+			wohnungen.ForEach(w =>
+			{
+				List<Raum> raeume = LoadRaeume(w);
+				raeume.ForEach(r =>
+				{
+					List<Messpunkt> mps = LoadMesspunkte(r);
+					mps.ForEach(mp =>
+					{
+						List<MessWert> werte = LoadMesswerte(mp);
+					});
+				});
+			});
+			return wohnungen;
+		}
+
 		public List<Wohnung> LoadWohnungen()
 		{
 			bool wasOpen = connection.State == System.Data.ConnectionState.Open;

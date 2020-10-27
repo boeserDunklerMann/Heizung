@@ -3,3 +3,9 @@ X:\gitRepositories.Common\Heizung\Heizung.DBAccess\bin\Debug\netcoreapp3.0\Heizu
 X:\gitRepositories.Common\Heizung\Heizung.DBAccess\obj\Debug\netcoreapp3.0\Heizung.DBAccess.csprojAssemblyReference.cache
 X:\gitRepositories.Common\Heizung\Heizung.DBAccess\obj\Debug\netcoreapp3.0\Heizung.DBAccess.AssemblyInfoInputs.cache
 X:\gitRepositories.Common\Heizung\Heizung.DBAccess\obj\Debug\netcoreapp3.0\Heizung.DBAccess.AssemblyInfo.cs
+X:\gitRepositories.Common\Heizung\Heizung.DBAccess\bin\Debug\netcoreapp3.0\Heizung.DBAccess.pdb
+X:\gitRepositories.Common\Heizung\Heizung.DBAccess\bin\Debug\netcoreapp3.0\Heizung.Model.dll
+X:\gitRepositories.Common\Heizung\Heizung.DBAccess\bin\Debug\netcoreapp3.0\Heizung.Model.pdb
+X:\gitRepositories.Common\Heizung\Heizung.DBAccess\obj\Debug\netcoreapp3.0\Heizung.DBAccess.csproj.CopyComplete
+X:\gitRepositories.Common\Heizung\Heizung.DBAccess\obj\Debug\netcoreapp3.0\Heizung.DBAccess.dll
+X:\gitRepositories.Common\Heizung\Heizung.DBAccess\obj\Debug\netcoreapp3.0\Heizung.DBAccess.pdb

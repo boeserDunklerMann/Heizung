@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Heizung.Model;
+using Heizung.Model.Attributes;
 using MySql.Data.MySqlClient;
 
 namespace Heizung.DBAccess
@@ -62,11 +65,11 @@ namespace Heizung.DBAccess
 				connection.Open();
 			List<Wohnung> retval = new List<Wohnung>();
 
-			using(MySqlCommand cmd = new MySqlCommand(SqlConstants.SQL_LoadWohnungen, connection))
+			using (MySqlCommand cmd = new MySqlCommand(SqlConstants.SQL_LoadWohnungen, connection))
 			{
 				using (MySqlDataReader reader = cmd.ExecuteReader())
 				{
-					while(reader.Read())
+					while (reader.Read())
 					{
 						Wohnung w = new Wohnung();
 						w.FromReader(reader);
@@ -181,6 +184,88 @@ namespace Heizung.DBAccess
 			return retval;
 		}
 		#endregion
+
+		#region Schreibe Tabellen
+		public void WriteModel(BaseModel model)
+		{
+			string delete = "";
+			string insert = "";
+			string update = "";
+			if (model is MessWert)
+			{
+				delete = SqlConstants.SQL_DeleteMesswert;
+				insert = SqlConstants.SQL_InsertMesswert;
+				update = SqlConstants.SQL_UpdateMesswert;
+			}
+			bool wasOpen = connection.State == System.Data.ConnectionState.Open;
+			if (!wasOpen)
+				connection.Open();
+			if (model.DeleteMe)
+			{
+				using (MySqlCommand cmd = new MySqlCommand(delete, connection))
+				{
+					FillParameters(cmd.Parameters, model);
+					cmd.ExecuteNonQuery();
+				}
+			}
+			else
+			{
+				if (model.IsNew)
+				{
+					using (MySqlCommand cmd = new MySqlCommand(insert, connection))
+					{
+						FillParameters(cmd.Parameters, model);
+						using (MySqlDataReader reader = cmd.ExecuteReader())
+						{
+							if (reader.Read())
+							{
+								model.ID = Convert.ToInt32(reader[0]);
+							}
+							else
+							{
+								// TODO: hier müsste man eigentlich eskalieren, da wir keine ID zurückbekommen haben.
+							}
+						}
+					}
+				}
+				else
+				{
+					using(MySqlCommand cmd = new MySqlCommand(update, connection))
+					{
+						FillParameters(cmd.Parameters, model);
+						cmd.ExecuteNonQuery();
+					}
+				}
+			}
+		}
+
+		public void WriteMesswert(MessWert wert)
+		{
+			if (wert.Messpunkt != null)
+				wert.MesspunktID = wert.Messpunkt.MesspunktID;
+			WriteModel(wert);
+		}
+		public void WriteMesspunkt(Messpunkt messpunkt)
+		{
+			if (messpunkt.Raum != null)
+				messpunkt.RaumID = messpunkt.Raum.RaumID;
+			WriteModel(messpunkt);
+		}
+		#endregion
+
+		private static void FillParameters(MySqlParameterCollection parameters, BaseModel model)
+		{
+			PropertyInfo[] pinfos = model.GetType().GetProperties();
+			pinfos.ToList().ForEach(pi =>
+			{
+				Attribute sqlParamName = pi.GetCustomAttribute(typeof(SqlParameterNameAttribute));
+				if (sqlParamName != null)
+				{
+					SqlParameterNameAttribute sqlParameterNameAttribute = (SqlParameterNameAttribute)sqlParamName;
+					parameters.AddWithValue(sqlParameterNameAttribute.ParameterName, pi.GetValue(model));
+				}
+			});
+		}
 
 		public void Dispose()
 		{

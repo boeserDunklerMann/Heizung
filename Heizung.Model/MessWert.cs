@@ -7,15 +7,18 @@ namespace Heizung.Model
 {
 	public sealed class MessWert : BaseModel
 	{
+		[SqlParameterName("?wid")]
 		public int WertID { get => ID; set => ID = value; }
 
 		[OmitDb]
 		public Messpunkt Messpunkt { get; set; }
-		
+
+		[SqlParameterName("?mpid")]
 		public int MesspunktID { get; set; }
 
 		public DateTime Stamp { get; set; }
 
+		[SqlParameterName("?wert")]
 		public decimal Wert { get; set; }
 
 		public override bool Equals(object obj)

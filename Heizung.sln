@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.DBAccess", "Heizung.DBAccess\Heizung.DBAccess.csproj", "{DB819B67-CFFF-4FD9-B580-EA24274D1813}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.Model", "Heizung.Model\Heizung.Model.csproj", "{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{DB819B67-CFFF-4FD9-B580-EA24274D1813}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB819B67-CFFF-4FD9-B580-EA24274D1813}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB819B67-CFFF-4FD9-B580-EA24274D1813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

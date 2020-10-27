@@ -2,7 +2,7 @@
 
 namespace Heizung.DBAccess
 {
-	public class Class1
+	public class MySql
 	{
 	}
 }

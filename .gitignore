@@ -295,3 +295,5 @@ paket-files/
 
 # Local History for Visual Studio
 .localhistory/
+*.suo
+*.cache

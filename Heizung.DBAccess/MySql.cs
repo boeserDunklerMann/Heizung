@@ -41,12 +41,6 @@ namespace Heizung.DBAccess
 		#endregion
 
 		#region Lade Tabellen
-#if ASYNC
-		public async Task<List<Wohnung>> LoadAllAsync()
-		{
-			return await new Task<List<Wohnung>>(LoadAll);
-		}
-#endif
 		public List<Wohnung> LoadAll()
 		{
 			List<Wohnung> wohnungen = LoadWohnungen();

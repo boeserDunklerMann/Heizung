@@ -6,6 +6,7 @@ namespace Heizung.Wpf.App.UIModel
 	public class BaseTreeViewItem
 	{
 		private readonly BaseModel _baseModel;
+		public BaseModel Data => _baseModel;
 
 		public string Bezeichnung
 		{

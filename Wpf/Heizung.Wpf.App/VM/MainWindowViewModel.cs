@@ -38,6 +38,17 @@ namespace Heizung.Wpf.App.VM
 			}
 		}
 
+		private Model.Messpunkt _selectedMP;
+		public Model.Messpunkt SelectedMesspunkt
+		{
+			get => _selectedMP;
+			set
+			{
+				_selectedMP = value;
+				RaisePropertyChangedEvent(nameof(SelectedMesspunkt));
+			}
+		}
+
 		public  void LoadData()
 		{
 			var wohnungen = db.LoadAll();
@@ -45,7 +56,7 @@ namespace Heizung.Wpf.App.VM
 		}
 		public void MesspunktSelected()
 		{
-
+			SelectedMesspunkt = _selectedTVItem.Data as Model.Messpunkt;
 		}
 	}
 }

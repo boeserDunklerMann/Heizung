@@ -14,14 +14,21 @@
 	<Window.DataContext>
 		<vm:MainWindowViewModel/>
 	</Window.DataContext>
-	<Grid Margin="10" Background="Aquamarine">
-		<TreeView Name="tvWohnung" Width="400" Height="400" ItemsSource="{Binding Wohnung}" SelectedItemChanged="tvWohnung_SelectedItemChanged">
+	
+	<StackPanel Orientation="Horizontal" >
+		<TreeView Name="tvWohnung" Width="200" Height="400" ItemsSource="{Binding Wohnung}" SelectedItemChanged="tvWohnung_SelectedItemChanged">
 			<TreeView.ItemTemplate>
 				<HierarchicalDataTemplate DataType="{x:Type model:WohnungTreeViewItem}" ItemsSource="{Binding Children}">
 					<TextBlock Text="{Binding Bezeichnung}"/>
 				</HierarchicalDataTemplate>
 			</TreeView.ItemTemplate>
 		</TreeView>
-
-	</Grid>
+		<DataGrid Width="600" Background="Aquamarine" ItemsSource="{Binding SelectedMesspunkt.Werte}" AutoGenerateColumns="False">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Datum" Binding="{Binding Stamp, ConverterCulture=de-DE, StringFormat=g}"/>
+				<DataGridTextColumn Header="Wert" Binding="{Binding Wert}"/>
+				<DataGridTextColumn Header="Einheit" Binding="{Binding Messpunkt.Einheit}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+	</StackPanel>
 </Window>

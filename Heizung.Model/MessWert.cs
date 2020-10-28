@@ -13,6 +13,12 @@ namespace Heizung.Model
 		[OmitDb]
 		public Messpunkt Messpunkt { get; set; }
 
+		/// <summary>
+		/// Überschreiben wir und lesen es NICHT aus der DB <see cref="OmitDbAttribute"/>
+		/// </summary>
+		[OmitDb]
+		public new string Bezeichnung { get; set; }
+
 		[SqlParameterName("?mpid")]
 		public int MesspunktID { get; set; }
 

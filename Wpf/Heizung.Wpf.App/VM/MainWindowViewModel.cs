@@ -25,10 +25,27 @@ namespace Heizung.Wpf.App.VM
 			LoadData();
 		}
 
+		private UIModel.BaseTreeViewItem _selectedTVItem;
+		public UIModel.BaseTreeViewItem SelectedTVItem
+		{
+			get => _selectedTVItem;
+			set
+			{
+				_selectedTVItem = value;
+				if (_selectedTVItem is UIModel.MesspunktTreeViewItem)
+					MesspunktSelected();
+				RaisePropertyChangedEvent(nameof(SelectedTVItem));
+			}
+		}
+
 		public void LoadData()
 		{
 			var wohnungen = db.LoadAll();
 			Wohnung = new UIModel.WohnungTreeViewItem(wohnungen[0]); // TODO: was ist, wenns hier mehrere gibt?
+		}
+		public void MesspunktSelected()
+		{
+
 		}
 	}
 }

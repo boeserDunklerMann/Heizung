@@ -15,7 +15,7 @@
 		<vm:MainWindowViewModel/>
 	</Window.DataContext>
 	<Grid Margin="10" Background="Aquamarine">
-		<TreeView Name="tvWohnung" Width="400" Height="400" ItemsSource="{Binding Wohnung}">
+		<TreeView Name="tvWohnung" Width="400" Height="400" ItemsSource="{Binding Wohnung}" SelectedItemChanged="tvWohnung_SelectedItemChanged">
 			<TreeView.ItemTemplate>
 				<HierarchicalDataTemplate DataType="{x:Type model:WohnungTreeViewItem}" ItemsSource="{Binding Children}">
 					<TextBlock Text="{Binding Bezeichnung}"/>

@@ -5,14 +5,14 @@ using Heizung.Model;
 
 namespace Heizung.Wpf.App.UIModel
 {
-	public class RaumTreeViewItem:BaseTreeViewItem
+	public class RaumTreeViewItem : BaseTreeViewItem
 	{
 		public RaumTreeViewItem(Raum r) : base(r)
 		{
 			r.Messpunkte.ForEach(mp =>
 			{
-				BaseTreeViewItem tvi = new BaseTreeViewItem(mp);
-				Children.Add(tvi);
+				MesspunktTreeViewItem mptvi = new MesspunktTreeViewItem(mp);
+				Children.Add(mptvi);
 			});
 		}
 	}

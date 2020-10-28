@@ -26,5 +26,10 @@ namespace Heizung.Wpf.App
 			VM.MainWindowViewModel vm = DataContext as VM.MainWindowViewModel;
 			tvWohnung.Items.Add(vm.Wohnung);
 		}
+
+		private void tvWohnung_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+		{
+			(DataContext as VM.MainWindowViewModel).SelectedTVItem = (UIModel.BaseTreeViewItem)e.NewValue;
+		}
 	}
 }

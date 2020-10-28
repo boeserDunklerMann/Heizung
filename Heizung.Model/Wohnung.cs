@@ -6,8 +6,8 @@ namespace Heizung.Model
 	public sealed class Wohnung : BaseModel
 	{
 		public int WohnungID { get => ID; set => ID = value; }
-		[DbField("Bez")]
-		public string Bezeichnung { get; set; }
+		//[DbField("Bez")]
+		//public string Bezeichnung { get; set; }
 		[OmitDb]
 		public List<Raum> Raeume { get; } = new List<Raum>();
 		public override bool Equals(object obj)

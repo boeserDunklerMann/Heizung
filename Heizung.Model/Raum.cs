@@ -9,8 +9,8 @@ namespace Heizung.Model
 	{
 		public int RaumID { get => ID; set => ID = value; }
 
-		[DbField("Bez")]
-		public string Bezeichnung { get; set; }
+		//[DbField("Bez")]
+		//public string Bezeichnung { get; set; }
 
 		[OmitDb]
 		public Wohnung Wohnung { get; set; }

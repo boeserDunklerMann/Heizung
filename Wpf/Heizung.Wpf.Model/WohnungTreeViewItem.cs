@@ -12,11 +12,6 @@ namespace Heizung.Wpf.Model
 			dataModel.Raeume.ForEach(r =>
 			{
 				RaumTreeViewItem rtvi = new RaumTreeViewItem(r);
-				r.Messpunkte.ForEach(mp =>
-				{
-					BaseTreeViewItem tvi = new BaseTreeViewItem(mp);
-					rtvi.Children.Add(tvi);
-				});
 				Children.Add(rtvi);
 			});
 		}

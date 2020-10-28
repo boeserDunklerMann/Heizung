@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf", "Wpf", "{596756EF-B52
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.Wpf.Model", "Wpf\Heizung.Wpf.Model\Heizung.Wpf.Model.csproj", "{F68768F3-813E-4778-A9A9-D5729E4BBAF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.Wpf.Controls", "Wpf\Heizung.Wpf.Controls\Heizung.Wpf.Controls.csproj", "{347DE91D-A7EC-41F7-8884-11645E740590}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{F68768F3-813E-4778-A9A9-D5729E4BBAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F68768F3-813E-4778-A9A9-D5729E4BBAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F68768F3-813E-4778-A9A9-D5729E4BBAF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{347DE91D-A7EC-41F7-8884-11645E740590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{347DE91D-A7EC-41F7-8884-11645E740590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{347DE91D-A7EC-41F7-8884-11645E740590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{347DE91D-A7EC-41F7-8884-11645E740590}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA} = {D2BA6F76-2F1E-430D-8629-1440F92976FC}
 		{075366C6-B8F4-433F-AE18-F115F04601A2} = {D2BA6F76-2F1E-430D-8629-1440F92976FC}
 		{F68768F3-813E-4778-A9A9-D5729E4BBAF3} = {596756EF-B52C-4560-89FC-9BD8A11CD415}
+		{347DE91D-A7EC-41F7-8884-11645E740590} = {596756EF-B52C-4560-89FC-9BD8A11CD415}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9D1FEEC-22EB-48A7-8A7A-D135FCD67132}

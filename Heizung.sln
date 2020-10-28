@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.DBAccess", "Heizung.DBAccess\Heizung.DBAccess.csproj", "{DB819B67-CFFF-4FD9-B580-EA24274D1813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heizung.DBAccess", "Heizung.DBAccess\Heizung.DBAccess.csproj", "{DB819B67-CFFF-4FD9-B580-EA24274D1813}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.Model", "Heizung.Model\Heizung.Model.csproj", "{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heizung.Model", "Heizung.Model\Heizung.Model.csproj", "{67541DA5-B27C-4B4B-AF29-88D9A2FC5951}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testingapps", "Testingapps", "{D2BA6F76-2F1E-430D-8629-1440F92976FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.Test.Cons", "Heizung.Test.Cons\Heizung.Test.Cons.csproj", "{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heizung.Test.Cons", "Heizung.Test.Cons\Heizung.Test.Cons.csproj", "{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.Test.Wpf.TreeView", "Heizung.Test.Wpf.TreeView\Heizung.Test.Wpf.TreeView.csproj", "{075366C6-B8F4-433F-AE18-F115F04601A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +31,17 @@ Global
 		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{075366C6-B8F4-433F-AE18-F115F04601A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075366C6-B8F4-433F-AE18-F115F04601A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075366C6-B8F4-433F-AE18-F115F04601A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075366C6-B8F4-433F-AE18-F115F04601A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{78B67F8B-7306-48D4-88C7-7EA44D0FCEBA} = {D2BA6F76-2F1E-430D-8629-1440F92976FC}
+		{075366C6-B8F4-433F-AE18-F115F04601A2} = {D2BA6F76-2F1E-430D-8629-1440F92976FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9D1FEEC-22EB-48A7-8A7A-D135FCD67132}

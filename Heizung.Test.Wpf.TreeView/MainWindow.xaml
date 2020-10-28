@@ -1,0 +1,22 @@
+﻿<Window x:Class="Heizung.Test.Wpf.TreeView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Heizung.Test.Wpf.TreeView"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+		TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+		Background="{DynamicResource MaterialDesignPaper}"
+		FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+
+	<Grid Margin="10">
+		<TreeView Name="tvWohnung">
+			<TreeView.ItemTemplate>
+				<HierarchicalDataTemplate DataType="{x:Type local:WohnungsItem}" ItemsSource="{Binding Children}">
+					<TextBlock Text="{Binding Bezeichnung}"/>
+				</HierarchicalDataTemplate>
+			</TreeView.ItemTemplate>
+		</TreeView>
+	</Grid>
+</Window>

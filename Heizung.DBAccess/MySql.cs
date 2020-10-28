@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using Heizung.Model;
 using Heizung.Model.Attributes;
 using MySql.Data.MySqlClient;
@@ -40,6 +41,12 @@ namespace Heizung.DBAccess
 		#endregion
 
 		#region Lade Tabellen
+#if ASYNC
+		public async Task<List<Wohnung>> LoadAllAsync()
+		{
+			return await new Task<List<Wohnung>>(LoadAll);
+		}
+#endif
 		public List<Wohnung> LoadAll()
 		{
 			List<Wohnung> wohnungen = LoadWohnungen();

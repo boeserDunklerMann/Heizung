@@ -5,6 +5,10 @@
     <Configurations>Debug;Release;Debug Async</Configurations>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Async|AnyCPU'">
+    <DefineConstants>TRACE;ASYNC</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.22" />
   </ItemGroup>

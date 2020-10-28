@@ -38,7 +38,7 @@ namespace Heizung.Wpf.App.VM
 			}
 		}
 
-		public void LoadData()
+		public  void LoadData()
 		{
 			var wohnungen = db.LoadAll();
 			Wohnung = new UIModel.WohnungTreeViewItem(wohnungen[0]); // TODO: was ist, wenns hier mehrere gibt?

@@ -198,6 +198,34 @@ namespace Heizung.DBAccess
 				insert = SqlConstants.SQL_InsertMesswert;
 				update = SqlConstants.SQL_UpdateMesswert;
 			}
+			else
+			{
+				if (model is Messpunkt)
+				{
+					delete = SqlConstants.SQL_DeleteMesspunkt;
+					insert = SqlConstants.SQL_InsertMesspunkt;
+					update = SqlConstants.SQL_UpdateMesspunkt;
+				}
+				else
+				{
+					if (model is Raum)
+					{
+						delete = SqlConstants.SQL_DeleteRaum;
+						insert = SqlConstants.SQL_InsertRaum;
+						update = SqlConstants.SQL_UpdateRaum;
+					}
+					else
+					{
+						if (model is Wohnung)
+						{
+							delete = SqlConstants.SQL_DeleteWohnung;
+							insert = SqlConstants.SQL_InsertWohnung;
+							update = SqlConstants.SQL_UpdateWohnung;
+						}
+					}
+				}
+			}
+
 			bool wasOpen = connection.State == System.Data.ConnectionState.Open;
 			if (!wasOpen)
 				connection.Open();
@@ -238,15 +266,22 @@ namespace Heizung.DBAccess
 					}
 				}
 			}
+			if (!wasOpen)
+				connection.Close();
 		}
 
-		public void WriteMesswert(MessWert wert)
+		public void WriteWohnung(Wohnung wohnung)
 		{
-			WriteModel(wert);
-		}
-		public void WriteMesspunkt(Messpunkt messpunkt)
-		{
-			WriteModel(messpunkt);
+			WriteModel(wohnung);
+			wohnung.Raeume.ForEach(raum =>
+			{
+				WriteModel(raum);
+				raum.Messpunkte.ForEach(messpunkt =>
+				{
+					WriteModel(messpunkt);
+					messpunkt.Werte.ForEach(wert => WriteModel(wert));
+				});
+			});
 		}
 		#endregion
 

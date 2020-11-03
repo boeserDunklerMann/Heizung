@@ -8,9 +8,9 @@ namespace Heizung.Test.Cons
 	{
 		static void Main(string[] args)
 		{
-			/*
 			DBAccess.MySql db = DBAccess.MySql.Instance;
 			db.SetConnection("heizung", "heizung", "192.168.1.3", "Heizung");
+			/*
 			var wohnungen = db.LoadAll();
 			MessWert w = new MessWert
 			{
@@ -20,11 +20,14 @@ namespace Heizung.Test.Cons
 			};
 			db.WriteMesswert(w);
 			*/
-			ReSTWrapper.Wohnung wohnung = ReSTWrapper.Wohnung.Instance;
-			ReSTWrapper.Raum raum = ReSTWrapper.Raum.Instance;
-			var w = wohnung.GetAllWohnungen().Result;
-			var r = raum.GetRaeume(w[0]).Result;
-
+			ReSTWrapper.Wohnung wohnungrest = ReSTWrapper.Wohnung.Instance;
+			ReSTWrapper.Raum raumrest = ReSTWrapper.Raum.Instance;
+			var w = wohnungrest.GetAllWohnungen().Result;
+			var r = raumrest.GetRaeume(w[0]).Result;
+			Model.Wohnung wohnung1 = w[0];
+			wohnung1.Raeume.Add(new Raum() { Bezeichnung = "Keller", WohnungID = wohnung1.WohnungID });
+			wohnungrest.WriteWohnung(wohnung1);
+			//db.WriteWohnung(wohnung1);
 		}
 	}
 }

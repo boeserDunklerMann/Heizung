@@ -7,14 +7,10 @@ namespace Heizung.Model
 {
 	public sealed class Raum : BaseModel
 	{
+		[SqlParameterName("?rid")]
 		public int RaumID { get => ID; set => ID = value; }
 
-		//[DbField("Bez")]
-		//public string Bezeichnung { get; set; }
-
-		//[OmitDb]
-		//public Wohnung Wohnung { get; set; }
-
+		[SqlParameterName("?wid")]
 		public int WohnungID { get; set; }
 
 		[OmitDb]

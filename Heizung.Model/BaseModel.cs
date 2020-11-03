@@ -28,8 +28,10 @@ namespace Heizung.Model
 		/// <summary>
 		/// die meisten Datenobjekte haben eine Bezeichnung (außer <see cref="MessWert"/>)
 		/// </summary>
+		[SqlParameterName("?bez")]
 		[DbField("Bez")]
 		public string Bezeichnung { get; set; }
+
 		/// <summary>
 		/// Liest die Daten aus einem DataReader per Reflection in die Properties dieser und der abgeleiteten Klassen
 		/// </summary>

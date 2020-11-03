@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Heizung.ReSTWrapper
 {
-	public class Wohnung :BaseWrapper
+	public class Wohnung : BaseWrapper
 	{
 		private static readonly Lazy<Wohnung> lazy = new Lazy<Wohnung>(() => new Wohnung());
 		public static Wohnung Instance => lazy.Value;
 
-		private Wohnung():base()
+		private Wohnung() : base()
 		{
 			reSTUrl = "api/heizung/wohnung";
 		}
@@ -18,6 +18,11 @@ namespace Heizung.ReSTWrapper
 		public async Task<List<Model.Wohnung>> GetAllWohnungen()
 		{
 			return await SendDataGETReturnsModel<List<Model.Wohnung>>();
+		}
+
+		public void WriteWohnung(Model.Wohnung wohnung)
+		{
+			SendDataPUT(wohnung);
 		}
 	}
 }

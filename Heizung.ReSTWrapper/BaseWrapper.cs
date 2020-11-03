@@ -102,7 +102,13 @@ namespace Heizung.ReSTWrapper
 		/// <summary>
 		/// Sendet Daten im Put-Body
 		/// </summary>
-		protected async void SendDataPUT(Model.BaseModel data)
+		/// <ChangeLog>
+		/// <Create Datum="15.10.2020" Entwickler="DA" />
+		/// </ChangeLog>
+		/// <summary>
+		/// Sendet Daten im Put-Body
+		/// </summary>
+		protected async Task SendDataPUT(Model.BaseModel data)
 		{
 			HttpClient client = new HttpClient();
 			HttpRequestMessage request = new HttpRequestMessage

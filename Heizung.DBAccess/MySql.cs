@@ -106,7 +106,7 @@ namespace Heizung.DBAccess
 						raum.FromReader(reader);
 						if (raum.WohnungID == wohnung.WohnungID)
 						{
-							raum.Wohnung = wohnung;
+							//raum.Wohnung = wohnung;
 							wohnung.Raeume.Add(raum);
 							retval.Add(raum);
 						}
@@ -140,7 +140,7 @@ namespace Heizung.DBAccess
 						mp.FromReader(reader);
 						if (mp.RaumID == raum.RaumID)
 						{
-							mp.Raum = raum;
+							//mp.Raum = raum;
 							raum.Messpunkte.Add(mp);
 							retval.Add(mp);
 						}
@@ -173,7 +173,7 @@ namespace Heizung.DBAccess
 						mw.FromReader(reader);
 						if (mw.MesspunktID == messpunkt.MesspunktID)
 						{
-							mw.Messpunkt = messpunkt;
+							//mw.Messpunkt = messpunkt;
 							messpunkt.Werte.Add(mw);
 							retval.Add(mw);
 						}
@@ -242,14 +242,10 @@ namespace Heizung.DBAccess
 
 		public void WriteMesswert(MessWert wert)
 		{
-			if (wert.Messpunkt != null)
-				wert.MesspunktID = wert.Messpunkt.MesspunktID;
 			WriteModel(wert);
 		}
 		public void WriteMesspunkt(Messpunkt messpunkt)
 		{
-			if (messpunkt.Raum != null)
-				messpunkt.RaumID = messpunkt.Raum.RaumID;
 			WriteModel(messpunkt);
 		}
 		#endregion

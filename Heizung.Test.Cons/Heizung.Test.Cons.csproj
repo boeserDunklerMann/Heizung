@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Heizung.DBAccess\Heizung.DBAccess.csproj" />
     <ProjectReference Include="..\Heizung.Model\Heizung.Model.csproj" />
+    <ProjectReference Include="..\Heizung.ReSTWrapper\Heizung.ReSTWrapper.csproj" />
   </ItemGroup>
 
 </Project>

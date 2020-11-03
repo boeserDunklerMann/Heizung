@@ -10,11 +10,10 @@ namespace Heizung.Model
 		[SqlParameterName("?wid")]
 		public int WertID { get => ID; set => ID = value; }
 
-		[OmitDb]
-		public Messpunkt Messpunkt { get; set; }
-
 		/// <summary>
 		/// Überschreiben wir und lesen es NICHT aus der DB <see cref="OmitDbAttribute"/>
+		/// Am Messwert selbst gibt es nämlich keine Bezeichnung, das
+		/// <see cref="BaseModel.FromReader(System.Data.IDataReader)"/> würde sonst eskalieren.
 		/// </summary>
 		[OmitDb]
 		public new string Bezeichnung { get; set; }

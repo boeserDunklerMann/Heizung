@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heizung.Wpf.App", "Wpf\Heiz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DA.lib.MVVM.Framework", "Wpf\DA.lib.MVVM.Framework\DA.lib.MVVM.Framework.csproj", "{4E445865-0D5D-4E58-8705-46758841C1B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.ReST", "Heizung.ReST\Heizung.ReST.csproj", "{73D3C061-9FFA-444C-9865-34AB9D0BA99B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Heizung.ReST", "Heizung.ReST\Heizung.ReST.csproj", "{73D3C061-9FFA-444C-9865-34AB9D0BA99B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heizung.ReSTWrapper", "Heizung.ReSTWrapper\Heizung.ReSTWrapper.csproj", "{5D5E4C9A-37E7-4770-BFBE-7FA3F88B2002}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{73D3C061-9FFA-444C-9865-34AB9D0BA99B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73D3C061-9FFA-444C-9865-34AB9D0BA99B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73D3C061-9FFA-444C-9865-34AB9D0BA99B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D5E4C9A-37E7-4770-BFBE-7FA3F88B2002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D5E4C9A-37E7-4770-BFBE-7FA3F88B2002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D5E4C9A-37E7-4770-BFBE-7FA3F88B2002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D5E4C9A-37E7-4770-BFBE-7FA3F88B2002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

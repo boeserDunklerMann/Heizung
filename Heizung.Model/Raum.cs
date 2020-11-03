@@ -12,8 +12,8 @@ namespace Heizung.Model
 		//[DbField("Bez")]
 		//public string Bezeichnung { get; set; }
 
-		[OmitDb]
-		public Wohnung Wohnung { get; set; }
+		//[OmitDb]
+		//public Wohnung Wohnung { get; set; }
 
 		public int WohnungID { get; set; }
 

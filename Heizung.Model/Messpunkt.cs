@@ -9,14 +9,7 @@ namespace Heizung.Model
 	{
 		public int MesspunktID { get => ID; set => ID = value; }
 
-		[OmitDb]
-		public Raum Raum { get; set; }
-
 		public int RaumID { get; set; }
-
-		//[DbField("Bez")]
-		//[String(300)]
-		//public string Bezeichnung { get; set; }
 
 		[String(10)]
 		public string Einheit { get; set; }

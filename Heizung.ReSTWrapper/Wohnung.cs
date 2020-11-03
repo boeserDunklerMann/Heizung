@@ -15,9 +15,9 @@ namespace Heizung.ReSTWrapper
 			reSTUrl = "api/heizung/wohnung";
 		}
 
-		public async Task<List<Model.Wohnung>> GetAllWohnungen()
+		public List<Model.Wohnung> GetAllWohnungen()
 		{
-			return await SendDataGETReturnsModel<List<Model.Wohnung>>();
+			return SendDataGETReturnsModel<List<Model.Wohnung>>().ConfigureAwait(false).GetAwaiter().GetResult();
 		}
 
 		public async void WriteWohnung(Model.Wohnung wohnung)

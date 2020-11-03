@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Heizung.DBAccess\Heizung.DBAccess.csproj" />
     <ProjectReference Include="..\..\Heizung.Model\Heizung.Model.csproj" />
+    <ProjectReference Include="..\..\Heizung.ReSTWrapper\Heizung.ReSTWrapper.csproj" />
     <ProjectReference Include="..\DA.lib.MVVM.Framework\DA.lib.MVVM.Framework.csproj" />
   </ItemGroup>
 

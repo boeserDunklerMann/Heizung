@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Heizung.Wpf.App.VM
 {
 	public class MainWindowViewModel : DA.lib.MVVM.Framework.ObservableObject
 	{
+		private readonly ReSTWrapper.Wohnung wohnungRest;
+		public MainWindowViewModel()
+		{
+			wohnungRest = ReSTWrapper.Wohnung.Instance;
+			LoadData();
+		}
+
 		private UIModel.WohnungTreeViewItem wohnung;
+		/// <summary>
+		/// der Root-Knoten im TV
+		/// </summary>
 		public UIModel.WohnungTreeViewItem Wohnung
 		{
 			get => wohnung;
@@ -17,15 +28,11 @@ namespace Heizung.Wpf.App.VM
 			}
 		}
 
-		private readonly DBAccess.MySql db;
-		public MainWindowViewModel()
-		{
-			db = DBAccess.MySql.Instance;
-			db.SetConnection("heizung", "heizung", "192.168.1.3", "Heizung");   // TODO: hole dies aus der Config
-			LoadData();
-		}
 
 		private UIModel.BaseTreeViewItem _selectedTVItem;
+		/// <summary>
+		/// das im TV asugewählte Item
+		/// </summary>
 		public UIModel.BaseTreeViewItem SelectedTVItem
 		{
 			get => _selectedTVItem;
@@ -38,7 +45,24 @@ namespace Heizung.Wpf.App.VM
 			}
 		}
 
+		private Model.MessWert _selectedMW;
+		/// <summary>
+		/// der im Grid ausgewählte Messwert
+		/// </summary>
+		public Model.MessWert SelectedMesswert
+		{
+			get => _selectedMW;
+			set
+			{
+				_selectedMW = value;
+				RaisePropertyChangedEvent(nameof(SelectedMesswert));
+			}
+		}
+
 		private Model.Messpunkt _selectedMP;
+		/// <summary>
+		/// der im TV ausgewählte Messpunkt (wenns denn einer ist).
+		/// </summary>
 		public Model.Messpunkt SelectedMesspunkt
 		{
 			get => _selectedMP;
@@ -49,14 +73,49 @@ namespace Heizung.Wpf.App.VM
 			}
 		}
 
-		public  void LoadData()
+		public void LoadData()
 		{
-			var wohnungen = db.LoadAll();
+			var wohnungen = wohnungRest.GetAllWohnungen();
 			Wohnung = new UIModel.WohnungTreeViewItem(wohnungen[0]); // TODO: was ist, wenns hier mehrere gibt?
 		}
+
 		public void MesspunktSelected()
 		{
 			SelectedMesspunkt = _selectedTVItem.Data as Model.Messpunkt;
+			Messwerte = new ObservableCollection<Model.MessWert>(_selectedMP.Werte);
+		}
+		
+		private ObservableCollection<Model.MessWert> messWerte;
+		public ObservableCollection<Model.MessWert> Messwerte
+		{
+			get => messWerte;
+			set
+			{
+				messWerte = value;
+				RaisePropertyChangedEvent(nameof(Messwerte));
+			}
+		}
+
+		#region Commands
+		public DA.lib.MVVM.Framework.DelegateCommand AddNewMW => new DA.lib.MVVM.Framework.DelegateCommand(AddNewMesswert);
+		public DA.lib.MVVM.Framework.DelegateCommand SaveAllCmd => new DA.lib.MVVM.Framework.DelegateCommand(SaveAll);
+		#endregion
+
+		private void AddNewMesswert()
+		{
+			if (_selectedMP != null)
+			{
+				Model.MessWert mw = new Model.MessWert() { MesspunktID = _selectedMP.MesspunktID, Wert = 0, Stamp = DateTime.Now };
+				_selectedMP.Werte.Add(mw);
+				messWerte.Add(mw);
+				RaisePropertyChangedEvent(nameof(SelectedMesspunkt));
+				SelectedMesswert = mw;
+				RaisePropertyChangedEvent(nameof(SelectedMesswert));
+			}
+		}
+
+		private void SaveAll()
+		{
 		}
 	}
 }

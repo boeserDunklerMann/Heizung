@@ -26,11 +26,12 @@ namespace Heizung.Test.Cons
 			ReSTWrapper.Messpunkt messpunktrest = ReSTWrapper.Messpunkt.Instance;
 			ReSTWrapper.Messwert messwertrest = ReSTWrapper.Messwert.Instance;
 
-			var w = wohnungrest.GetAllWohnungen().Result;
+			//var w = wohnungrest.GetAllWohnungen().Result;
 			//var r = raumrest.GetRaeume(w[0]).Result;
-			Model.Wohnung wohnung1 = w[0];
+			//Model.Wohnung wohnung1 = w[0];
+			return;
 
-			/** Lösche Keller und Gasuhr **/
+			/** Lösche Keller und Gasuhr **
 			Model.Raum keller = wohnung1.Raeume.Last();
 			keller.DeleteMe = true;
 			Model.Messpunkt gaszaehler = keller.Messpunkte.Last();

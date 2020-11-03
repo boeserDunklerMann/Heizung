@@ -9,26 +9,43 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
 		TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-		Background="{DynamicResource MaterialDesignPaper}"
+		Background="{DynamicResource MaterialDesignPaper}" 
 		FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
 	<Window.DataContext>
 		<vm:MainWindowViewModel/>
 	</Window.DataContext>
 	
 	<StackPanel Orientation="Horizontal" >
-		<TreeView Name="tvWohnung" Width="200" Height="400" ItemsSource="{Binding Wohnung}" SelectedItemChanged="tvWohnung_SelectedItemChanged">
+		<TreeView Name="tvWohnung" Width="200" Height="400" BorderBrush="Black" BorderThickness="1" ItemsSource="{Binding Wohnung}" SelectedItemChanged="tvWohnung_SelectedItemChanged">
 			<TreeView.ItemTemplate>
 				<HierarchicalDataTemplate DataType="{x:Type model:WohnungTreeViewItem}" ItemsSource="{Binding Children}">
 					<TextBlock Text="{Binding Bezeichnung}"/>
 				</HierarchicalDataTemplate>
 			</TreeView.ItemTemplate>
 		</TreeView>
-		<DataGrid Width="600" Background="Aquamarine" ItemsSource="{Binding SelectedMesspunkt.Werte}" AutoGenerateColumns="False">
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="Datum" Binding="{Binding Stamp, ConverterCulture=de-DE, StringFormat=g}"/>
-				<DataGridTextColumn Header="Wert" Binding="{Binding Wert}"/>
-				<DataGridTextColumn Header="Einheit" Binding="{Binding Messpunkt.Einheit}"/>
-			</DataGrid.Columns>
-		</DataGrid>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="300"/>
+				<RowDefinition Height="50"/>
+			</Grid.RowDefinitions>
+			<DataGrid Width="600" Grid.Row="0" Grid.Column="0" Background="Beige"
+					  ItemsSource="{Binding Messwerte, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False"
+					  SelectedItem="{Binding SelectedMesswert}"
+					  CanUserAddRows="False">
+				<DataGrid.Columns>
+					<DataGridTextColumn Header="Datum" Binding="{Binding Stamp, ConverterCulture=de-DE, StringFormat=g}"/>
+					<DataGridTextColumn Header="Wert" Binding="{Binding Wert}"/>
+					<DataGridTextColumn Header="Einheit"
+									Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path= DataContext.SelectedMesspunkt.Einheit}"/>
+				</DataGrid.Columns>
+			</DataGrid>
+			<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Margin="3">
+				<Button Command="{Binding AddNewMW}">neuer Eintrag</Button>
+				<Button Margin="3" Command="{Binding SaveAllCmd}">alle Speichern</Button>
+			</StackPanel>
+		</Grid>
 	</StackPanel>
 </Window>

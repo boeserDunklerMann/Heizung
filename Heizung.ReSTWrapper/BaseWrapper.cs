@@ -11,8 +11,8 @@ namespace Heizung.ReSTWrapper
 	/// </summary>
 	public abstract class BaseWrapper
 	{
-		protected string baseUrl = "http://192.168.1.2:5003/";
-		//protected string baseUrl = "https://andre-nas.servebeer.com:8080/";
+		//protected string baseUrl = "http://192.168.1.2:5003/";
+		protected string baseUrl = "https://andre-nas.servebeer.com:8081/";
 		protected string reSTUrl;
 		public string Url => $"{baseUrl}{reSTUrl}";
 		protected System.Net.WebClient web;

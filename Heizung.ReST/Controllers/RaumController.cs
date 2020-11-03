@@ -25,5 +25,12 @@ namespace Heizung.ReST.Controllers
 			_logger.LogInformation($"HttpGet at {DateTime.UtcNow} UTC for {nameof(RaumController)}");
 			return _database.LoadRaeume(wohnung);
 		}
+
+		[HttpPut]
+		public void WriteRaum(Model.Raum raum)
+		{
+			_logger.LogInformation($"HttpPut at {DateTime.UtcNow} UTC for {nameof(RaumController)}");
+			_database.WriteModel(raum);
+		}
 	}
 }

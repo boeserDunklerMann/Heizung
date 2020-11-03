@@ -20,9 +20,9 @@ namespace Heizung.ReSTWrapper
 			return await SendDataGETReturnsModel<List<Model.Wohnung>>();
 		}
 
-		public void WriteWohnung(Model.Wohnung wohnung)
+		public async void WriteWohnung(Model.Wohnung wohnung)
 		{
-			SendDataPUT(wohnung);
+			await SendDataPUT(wohnung);
 		}
 	}
 }

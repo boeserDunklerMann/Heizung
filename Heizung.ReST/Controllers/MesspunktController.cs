@@ -16,10 +16,11 @@ namespace Heizung.ReST.Controllers
 		// Getter brauchen wir nicht, weil die Daten alle schon aus dem WohnungController kommen.
 
 		[HttpPut]
-		public void WriteMesspunkt(Model.Messpunkt messpunkt)
+		public Model.Messpunkt WriteMesspunkt(Model.Messpunkt messpunkt)
 		{
 			_logger.LogInformation($"HttpPut at {DateTime.UtcNow} UTC for {nameof(MesspunktController)}");
 			_database.WriteModel(messpunkt);
+			return messpunkt;
 		}
 	}
 }

@@ -25,9 +25,9 @@ namespace Heizung.ReSTWrapper
 			return await SendDataGETReturnsModel<List<Model.Raum>>(wohnung);
 		}
 
-		public async void WriteRaum(Model.Raum raum)
+		public async Task<Model.Raum> WriteRaum(Model.Raum raum)
 		{
-			await SendDataPUT(raum);
+			return await SendDataPUTReturnsModel<Model.Raum>(raum);
 		}
 	}
 }

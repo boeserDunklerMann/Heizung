@@ -102,12 +102,6 @@ namespace Heizung.ReSTWrapper
 		/// <summary>
 		/// Sendet Daten im Put-Body
 		/// </summary>
-		/// <ChangeLog>
-		/// <Create Datum="15.10.2020" Entwickler="DA" />
-		/// </ChangeLog>
-		/// <summary>
-		/// Sendet Daten im Put-Body
-		/// </summary>
 		protected async Task SendDataPUT(Model.BaseModel data)
 		{
 			HttpClient client = new HttpClient();
@@ -119,6 +113,30 @@ namespace Heizung.ReSTWrapper
 			};
 			HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
 			response.EnsureSuccessStatusCode();
+		}
+
+		/// <ChangeLog>
+		/// <Create Datum="03.11.2020" Entwickler="DA" />
+		/// </ChangeLog>
+		/// <summary>
+		/// Sendet Daten im Put-Body, deserialisiert aus dem zurückgekommenen JSON ein Objekt
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <param name="data"></param>
+		/// <returns></returns>
+		protected async Task<T> SendDataPUTReturnsModel<T>(Model.BaseModel data)
+		{
+			HttpClient client = new HttpClient();
+			HttpRequestMessage request = new HttpRequestMessage
+			{
+				Method = HttpMethod.Put,
+				RequestUri = new Uri(Url),
+				Content = new StringContent(JsonConvert.SerializeObject(data), Encoding.UTF8, "application/json")
+			};
+			HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
+			response.EnsureSuccessStatusCode();
+			var respBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+			return JsonConvert.DeserializeObject<T>(respBody);
 		}
 
 		/// <ChangeLog>
@@ -143,4 +161,3 @@ namespace Heizung.ReSTWrapper
 		}
 	}
 }
-

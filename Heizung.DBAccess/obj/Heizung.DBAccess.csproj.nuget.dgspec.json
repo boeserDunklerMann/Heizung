@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "X:\\gitRepositories.Common\\Heizung\\Heizung.DBAccess\\Heizung.DBAccess.csproj": {}
+    "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.DBAccess\\Heizung.DBAccess.csproj": {}
   },
   "projects": {
-    "X:\\gitRepositories.Common\\Heizung\\Heizung.DBAccess\\Heizung.DBAccess.csproj": {
+    "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.DBAccess\\Heizung.DBAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "X:\\gitRepositories.Common\\Heizung\\Heizung.DBAccess\\Heizung.DBAccess.csproj",
+        "projectUniqueName": "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.DBAccess\\Heizung.DBAccess.csproj",
         "projectName": "Heizung.DBAccess",
-        "projectPath": "X:\\gitRepositories.Common\\Heizung\\Heizung.DBAccess\\Heizung.DBAccess.csproj",
+        "projectPath": "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.DBAccess\\Heizung.DBAccess.csproj",
         "packagesPath": "C:\\Users\\dunkelan\\.nuget\\packages\\",
-        "outputPath": "X:\\gitRepositories.Common\\Heizung\\Heizung.DBAccess\\obj\\",
+        "outputPath": "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.DBAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "X:\\gitRepositories.Common\\Heizung\\Heizung.Model\\Heizung.Model.csproj": {
-                "projectPath": "X:\\gitRepositories.Common\\Heizung\\Heizung.Model\\Heizung.Model.csproj"
+              "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.Model\\Heizung.Model.csproj": {
+                "projectPath": "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.Model\\Heizung.Model.csproj"
               }
             }
           }
@@ -69,14 +69,14 @@
         }
       }
     },
-    "X:\\gitRepositories.Common\\Heizung\\Heizung.Model\\Heizung.Model.csproj": {
+    "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.Model\\Heizung.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "X:\\gitRepositories.Common\\Heizung\\Heizung.Model\\Heizung.Model.csproj",
+        "projectUniqueName": "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.Model\\Heizung.Model.csproj",
         "projectName": "Heizung.Model",
-        "projectPath": "X:\\gitRepositories.Common\\Heizung\\Heizung.Model\\Heizung.Model.csproj",
+        "projectPath": "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.Model\\Heizung.Model.csproj",
         "packagesPath": "C:\\Users\\dunkelan\\.nuget\\packages\\",
-        "outputPath": "X:\\gitRepositories.Common\\Heizung\\Heizung.Model\\obj\\",
+        "outputPath": "C:\\Users\\dunkelan\\Desktop\\GitHub\\Heizung\\Heizung.Model\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

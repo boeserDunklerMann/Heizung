@@ -31,5 +31,10 @@ namespace Heizung.Wpf.App
 		{
 			(DataContext as VM.MainWindowViewModel).SelectedTVItem = (UIModel.BaseTreeViewItem)e.NewValue;
 		}
+
+		private void MainWindowViewModel_OnNoMPSelected(object sender)
+		{
+			MessageBox.Show("Erst einen Messpunkt auswählen, um Werte hinzuzufügen.", "Fehler", MessageBoxButton.OK, MessageBoxImage.Error);
+		}
 	}
 }

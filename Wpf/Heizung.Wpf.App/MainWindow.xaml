@@ -12,7 +12,7 @@
 		Background="{DynamicResource MaterialDesignPaper}" 
 		FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
 	<Window.DataContext>
-		<vm:MainWindowViewModel/>
+		<vm:MainWindowViewModel OnNoMPSelected="MainWindowViewModel_OnNoMPSelected"/>
 	</Window.DataContext>
 	
 	<StackPanel Orientation="Horizontal" >
@@ -30,6 +30,7 @@
 			<Grid.RowDefinitions>
 				<RowDefinition Height="300"/>
 				<RowDefinition Height="50"/>
+				<RowDefinition Height="50"/>
 			</Grid.RowDefinitions>
 			<DataGrid Width="600" Grid.Row="0" Grid.Column="0" Background="Beige"
 					  ItemsSource="{Binding Messwerte, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False"
@@ -39,13 +40,15 @@
 					<DataGridTextColumn Header="Datum" Binding="{Binding Stamp, ConverterCulture=de-DE, StringFormat=g}"/>
 					<DataGridTextColumn Header="Wert" Binding="{Binding Wert}"/>
 					<DataGridTextColumn Header="Einheit"
-									Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path= DataContext.SelectedMesspunkt.Einheit}"/>
+									Binding="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path= DataContext.SelectedMesspunkt.Einheit}"
+										IsReadOnly="True"/>
 				</DataGrid.Columns>
 			</DataGrid>
 			<StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Margin="3">
 				<Button Command="{Binding AddNewMW}">neuer Eintrag</Button>
 				<Button Margin="3" Command="{Binding SaveAllCmd}">alle Speichern</Button>
 			</StackPanel>
+			<Button	Grid.Column="0" Grid.Row="2" Margin="3" Command="{Binding ReloadCmd}">alles Neuladen</Button>
 		</Grid>
 	</StackPanel>
 </Window>

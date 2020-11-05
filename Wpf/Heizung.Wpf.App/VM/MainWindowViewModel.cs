@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Heizung.Model;
 
 namespace Heizung.Wpf.App.VM
 {
@@ -99,6 +100,12 @@ namespace Heizung.Wpf.App.VM
 		#region Commands
 		public DA.lib.MVVM.Framework.DelegateCommand AddNewMW => new DA.lib.MVVM.Framework.DelegateCommand(AddNewMesswert);
 		public DA.lib.MVVM.Framework.DelegateCommand SaveAllCmd => new DA.lib.MVVM.Framework.DelegateCommand(SaveAll);
+		public DA.lib.MVVM.Framework.DelegateCommand ReloadCmd => new DA.lib.MVVM.Framework.DelegateCommand(LoadData);
+		#endregion
+
+		#region Delegates & Events
+		public delegate void NoMPSelectedDelegate(object sender);
+		public event NoMPSelectedDelegate OnNoMPSelected;
 		#endregion
 
 		private void AddNewMesswert()
@@ -112,10 +119,27 @@ namespace Heizung.Wpf.App.VM
 				SelectedMesswert = mw;
 				RaisePropertyChangedEvent(nameof(SelectedMesswert));
 			}
+			else
+				OnNoMPSelected?.Invoke(this);
 		}
 
 		private void SaveAll()
 		{
+			ReSTWrapper.Messwert messwertrest = ReSTWrapper.Messwert.Instance;
+			//ReSTWrapper.Messpunkt messpunktrest = ReSTWrapper.Messpunkt.Instance;
+			//ReSTWrapper.Raum raumrest = ReSTWrapper.Raum.Instance;
+
+			Wohnung w = Wohnung.Data as Heizung.Model.Wohnung;
+			w.Raeume.ForEach(raum =>
+			{
+				raum.Messpunkte.ForEach(mp =>
+				{
+					mp.Werte.ForEach(wert =>
+					{
+						messwertrest.WriteMesswert(wert);
+					});
+				});
+			});
 		}
 	}
 }

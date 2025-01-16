@@ -1,1 +1,1 @@
-WPF App zur Erfassung von Zählerständen (HKV, WMZ).
+WPF App zur Erfassung von Zählerständen (HKV, WasserZähler).
